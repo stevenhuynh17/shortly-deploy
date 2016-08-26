@@ -13,7 +13,19 @@ var Link = db.Model.extend({
       shasum.update(model.get('url'));
       model.set('code', shasum.digest('hex').slice(0, 5));
     });
+  }, 
+
+  initialize: function() {
+    var newUrl = new db.newUrl({
+      url: String,
+      baseUrl: String,
+      code: '',
+      title: String,
+      visits: 0,
+    }); 
+    newUrl.hashUrl();
   }
+
 });
 
 module.exports = Link;

@@ -35,7 +35,6 @@ module.exports = function(grunt) {
     },
 
     eslint: {
-      options: { maxWarnings: 1 },
       target: [
         '**.js'
       ]
